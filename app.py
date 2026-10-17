@@ -1,10 +1,14 @@
+import os
 from collections import Counter
 import requests
 import streamlit as st
 
 from database import init_db, save_results, load_history, DB_FILE
 
-API_URL = "http://127.0.0.1:8000/analyze"
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000/analyze"
+)
 
 init_db()
 
